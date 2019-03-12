@@ -116,8 +116,10 @@ def login():
         result = rows.fetchone()
 
         # Ensure username exists and password is correct
-        if result == None or not check_password_hash(result[2], request.form.get("password")):
-            return render_template('error.html', message ="invalid username and/or password")
+        if result==None:
+            return render_template('error.html', message="invalid username and/or password")
+        if not check_password_hash(result[2], request.form.get("password")):
+            return render_template('error.html', message="invalid username and/or password")
 
         # Remember which user has logged in
         session["user_id"] = result[0]
@@ -169,7 +171,6 @@ def search():
     # Fetch all the results
     books = rows.fetchall()
 
-
     return render_template("results.html", books=books)
 
 
@@ -181,7 +182,7 @@ def book(isbn):
     if request.method == "POST":
 
         # Save current user info
-        currentUser = session["user_id"]
+        currentuser = session["user_id"]
 
         # Fetch form data
         rating = request.form.get("rating")
@@ -197,7 +198,7 @@ def book(isbn):
 
         # Check for user submission (ONLY 1 review/user allowed per book)
         row2 = db.execute("SELECT * FROM reviews WHERE user_id = :user_id AND isbn = isbn",
-                          {"user_id": currentUser,
+                          {"user_id": currentuser,
                            "isbn": bookId})
 
         # A review already exists
@@ -224,7 +225,7 @@ def book(isbn):
 
     # Take the book ISBN and redirect to his page (GET)
     else:
-
+        currentuser = session["user_id"]
         row = db.execute("SELECT isbn, title, author, year FROM books WHERE \
                         isbn = :isbn",
                          {"isbn": isbn})
@@ -261,8 +262,8 @@ def book(isbn):
         # Fetch book reviews
         # Date formatting (https://www.postgresql.org/docs/9.1/functions-formatting.html)
         results = db.execute("SELECT * FROM reviews WHERE user_id = :user_id AND isbn = isbn",
-                          {"user_id": currentUser,
-                           "isbn": bookId})
+                          {"user_id": currentuser,
+                           "isbn": book})
         reviews = results.fetchall()
 
         return render_template("book.html", bookInfo=bookInfo, reviews=reviews)
