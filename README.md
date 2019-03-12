@@ -46,22 +46,19 @@ $ export GOODREADS_KEY = Goodreads API Key. # More info: https://www.goodreads.c
 
 -  **Flask**  Flask is a micro web framework written in Python. It is classified as a microframework
  because it does not require particular tools or libraries. It has no database abstraction layer, 
- form validation, or any other components where pre-existing third-party libraries provide common functions. 
- <br>
- It is used in this project to handle all the HTTP routes, rendering views and performing database queries.
+ form validation, or any other components where pre-existing third-party libraries provide common functions. <br>
+ It is used in this project to handle all the HTTP routes, rendering views and performing database queries. 
  
 -  **PosgreSQL**  PostgreSQL, often simply Postgres, is an open source object-relational database management system with an 
 emphasis on extensibility and standards compliance. It can handle workloads ranging from small single-machine 
-applications to large Internet-facing applications with many concurrent users.
- <br>
+applications to large Internet-facing applications with many concurrent users. <br>
  Used for storing data of the users. <br>
- Online hosted by in [heroku](https://www.heroku.com/postgres), accessed via [Adminer](https://adminer.cs50.net/).
+ Online hosted by in [Heroku](https://www.heroku.com/postgres), accessed via [Adminer](https://adminer.cs50.net/).
  
  - **Bootstrap**  Bootstrap is a free and open-source front-end Web framework. It contains HTML and CSS-based design templates 
- for typography, forms, buttons, navigation and other interface components, 
- as well as optional JavaScript extensions.
-  <br>
-  Used for stylising frontend.
+ for typography, forms, buttons, navigation and other interface components
+ as well as optional JavaScript extensions.  <br>
+  Used for stylising frontend. [Get Bootstrap](https://getbootstrap.com/)
  
  
  
