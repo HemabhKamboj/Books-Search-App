@@ -175,7 +175,7 @@ def search():
 
 
 @app.route("/book/<isbn>", methods=['GET', 'POST'])
-# @helpers.login_required
+@helpers.login_required
 def book(isbn):
     """ Save user review and load same page with reviews updated."""
 
