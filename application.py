@@ -202,7 +202,7 @@ def book(isbn):
                            "isbn": bookId})
 
         # A review already exists
-        if row2.rowcount == 1:
+        if row2.rowcount != NULL:
             flash('You already submitted a review for this book', 'warning')
             return redirect("/book/" + isbn)
 
