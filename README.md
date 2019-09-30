@@ -3,7 +3,7 @@
 [**Demo of live application**](https://cs50-books-hkamboj.herokuapp.com/) 
 
 
-This project is based on an assignment of 
+This project is based on the assignment of 
 [CS50 Web Development with python and javascript](https://www.edx.org/course/cs50s-web-programming-with-python-and-javascript)
 
 
@@ -11,7 +11,7 @@ This project is based on an assignment of
 ## Usage
 
 * **Registration, Login and Logout** 
-* **Import** This is most interesting part of the project. Provided was a file called `books.csv`,
+* **Import** This is the most interesting part of the project. Provided was a file called `books.csv`,
  which had a spreadsheet in CSV format of 5000 different books. Each one has an ISBN number, a title, an author, 
  and a publication year. In a Python file called  `import.py` separate from the web application, I had to write 
  a script that will take the books and import them into your PostgreSQL database. I first had to need 
